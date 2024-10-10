@@ -5,5 +5,5 @@ int gcd(int a,int b){
     else return gcd(b%a,a);
 }
 int main(){
-    
+    cout<<gcd(2,5);
 }
