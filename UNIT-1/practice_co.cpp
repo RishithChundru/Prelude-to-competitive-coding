@@ -187,7 +187,7 @@ int main(){
 
 // check array is palindrome or not
 
-bool checkpalindrome(int arr[],int n){
+/*bool checkpalindrome(int arr[],int n){
     int left=0;
     int right=n-1;
     while(left<right){
@@ -207,4 +207,52 @@ int main(){
         cin>>arr[i];
     }
     cout<<checkpalindrome(arr,n);
+}*/
+
+
+// Count the Frequency of Each Element in an Array
+
+/*void countfrequency(vector<int> &arr,int n){
+    unordered_map<int,int> frequency;
+    for(int num:arr){
+        frequency[num]++;
+    }
+    for(auto &it:frequency){
+        cout<<"Element "<<it.first<<"appears "<<it.second<<"times"<<endl;
+    }
+
 }
+int main(){
+    vector<int> arr={1,2,3,3,2,1,4};
+    countfrequency(arr,7);
+}*/
+
+// check frquency for specific number
+
+
+/*void countFrequencyOfSpecificElement(const vector<int>& arr, int number) {
+    unordered_map<int, int> frequency;
+
+    // Traverse the array and update the frequency of each number
+    for (int num : arr) {
+        frequency[num]++;
+    }
+
+    // Check if the number exists in the frequency map and print its frequency
+    if (frequency.find(number) != frequency.end()) {
+        cout << "Element " << number << " appears " << frequency[number] << " times." << endl;
+    } else {
+        cout << "Element " << number << " is not in the array." << endl;
+    }
+}
+
+int main() {
+    vector<int> arr = {1, 2, 3, 3, 2, 1, 4};
+    int number = 3;  // Change this to the element you want to find the frequency of
+
+    countFrequencyOfSpecificElement(arr, number);
+
+    return 0;
+}
+*/
+
