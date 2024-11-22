@@ -25,7 +25,7 @@ int main(){
         arr[i]=arr[j];
         arr[j]=t;
     }
-    for(int i=0,j=n-1;i<j;i++,j--){
+        for(int i=0,j=n-1;i<j;i++,j--){
         int t=arr[i];
         arr[i]=arr[j];
         arr[j]=t;
