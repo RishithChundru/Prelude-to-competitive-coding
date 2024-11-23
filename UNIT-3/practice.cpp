@@ -158,16 +158,64 @@ int main(){
 */
 
 // p-smooth numbers in given ranges
+/*bool issmooth(int n,int p){
+    int kmax=2;
+    for(int i=2;i<=kmax;i++){
+        while(n%i==0){
+            n=n/i;
+            kmax=i;
+        }
+    }
+    if(n>1) kmax=n;
+    return kmax<=p;
+}
 
 vector<int> findprime(int start,int end,int p){
     vector<int> factors;
     for(int i=start;i<=end;i++){
-        
+        if(issmooth(i,p)){
+            factors.push_back(i);
+        }
     }
+    return factors;
 }
 int main(){
     int start,end,p;
     cin>>start>>end>>p;
     vector<int> factors=findprime(start,end,p);
     for(int i:factors) cout<<i<<" ";
+}
+*/
+
+
+//Problems Based on GCD and Primality Testing
+
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+int main() {
+    int a, b;
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+    cout << "GCD: " << gcd(a, b) << endl;
+
+    int n;
+    cout << "Enter a number to check primality: ";
+    cin >> n;
+    cout << (isPrime(n) ? "Prime" : "Not Prime") << endl;
+    return 0;
 }
