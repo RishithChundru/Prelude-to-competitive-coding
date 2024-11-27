@@ -1,25 +1,50 @@
-//Find the K Most Frequent Words from a String
-#include<iostream>
-#include<vector>
+#include <bits/stdc++.h>
 using namespace std;
-string frequentWord(string str){
-    vector<string>hash;
-    for(int i=0;i<str.size();i++){
-        string word="";
-        while(str[i]!=' '){
-            word+=str[i];
-            i++;
+
+vector<string> frequentWords(string str, int k) {
+    unordered_map<string, int> freq;
+
+    string word = "";
+    for (char c : str) {
+        if (c == ' ') {
+            if (!word.empty()) {
+                freq[word]++;
+                word = "";
+            }
+        } else {
+            word += c;
         }
-        if(!word.empty()) hash.push_back(word);
     }
-    for(int i=0;i<hash.size()-1;i++){
-        for(int j=i+1;j<hash.size();j++){
-            if(hash[i]==hash[j]) return hash[i];
+    if (!word.empty()) freq[word]++;
+
+    // Use a multimap to sort by frequency and lexicographically
+    multimap<int, string, greater<int>> sortedFreq; // Key is frequency, value is word
+    for (auto &entry : freq) {
+        sortedFreq.insert({entry.second, entry.first});
+    }
+
+    vector<string> result;
+    int count = 0;
+    for (auto &entry : sortedFreq) {
+        if (count < k) {
+            result.push_back(entry.second);
+            count++;
+        } else {
+            break;
         }
     }
-    return "-1";
+
+    return result;
 }
-int main(){
-    string str="to jog is the best way to be fit";
-    cout<<frequentWord(str);
+
+int main() {
+    string str = "to jog is the best way to jog and jog to be fit";
+    int k = 2;
+    vector<string> result = frequentWords(str, k);
+
+    cout << "The " << k << " most frequent words are: " << endl;
+    for (const string &word : result) {
+        cout << word << endl;
+    }
+    return 0;
 }
