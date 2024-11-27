@@ -13,9 +13,11 @@ int findpeak(int arr[],int n,int l,int r){
     }
 }
 int main(){
-    int arr[]={1,2,3,4,5};
-    int n=5;
-    cout<<arr[findpeak(arr,n,0,10)]<<endl;
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++) cin>>arr[i];
+    cout<<arr[findpeak(arr,n,0,n-1)]<<endl;
     
     return 0;
 }

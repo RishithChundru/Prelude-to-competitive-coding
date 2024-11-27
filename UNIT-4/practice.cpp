@@ -263,3 +263,234 @@ int main() {
     return 0;
 }
 */
+
+// Find no of pairs with difference k
+
+/*int findPairs(vector<int>& nums, int k) {
+        if (k < 0) return 0; 
+        unordered_map<int, int> freq;
+        int count = 0;
+        for (int num : nums) {
+            freq[num]++;
+        }
+    for (auto it = freq.begin(); it != freq.end(); ++it) {
+        int num = it->first;
+        int freq_count = it->second;
+            if (k == 0) {
+                if (freq_count > 1) {
+                    count++;
+                }
+            } else {
+                if (freq.find(num + k) != freq.end()) {
+                    count++;
+                }
+            }
+        }
+
+        return count;
+    }
+int main(){
+        int n;
+        cin>>n;
+        vector<int> arr(n);
+        for(int i=0;i<n;i++){
+            cin>>arr[i];
+        }
+        int k;
+        cin>>k;
+        cout<<findPairs(arr,k);
+    }
+*/  
+
+
+// find peak element 
+/*int findpeak(int arr[],int n,int l,int r){
+    while(l<=r){
+        int mid=l+(r-l)/2;
+        if(mid==0||arr[mid-1]<=arr[mid] && arr[mid+1]<=arr[mid]||mid==n-1){
+            return mid;
+        }
+        else if(arr[mid-1]>=arr[mid]||mid>0){
+            return findpeak(arr,n,l,mid-1);
+        }
+        else{
+            return findpeak(arr,n,mid+1,r);
+        }
+    }
+}
+
+int main(){
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    cout<<arr[findpeak(arr,n,0,n-1)]<<endl;
+}
+*/
+
+
+// binary search
+/*int binarysearch(int arr[],int k){
+    int l=0;
+    int r=sizeof(arr);
+    while(l<=r){
+        int mid=l+(r-l)/2;
+        if(arr[mid]==k) return mid;
+        else if(arr[mid]<k) l=mid+1;
+        else r=mid-1;
+    }
+    return -1;
+
+}
+int main(){
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int target;
+    cin>>target;
+    if(binarysearch(arr,target)){
+        cout<<target<<" is found";
+    }
+    else{
+        cout<<target<<" is not found";
+    }
+}
+*/
+
+
+// Length of Longest Subarray Having Sum in Given Range [l, r]
+/*int longsubarray(vector<int> &arr, int l,int r){
+    int maxlength=0,sum=0;
+    unordered_map<int,int> a;
+    a[0]=-1;
+    for(int i=0;i<arr.size();i++){
+        sum+=arr[i];
+        for(int j=l;j<=r;j++){
+            if(a.find(sum-j)!=a.end()){
+                maxlength=max(maxlength,i-a[sum-j]);
+            }
+        }
+        if(a.find(sum)==a.end()){
+            a[sum]=i;
+        }
+    }
+    return maxlength;
+}
+int main(){
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int l=5;
+    int r=10;
+    cout<<longsubarray(arr,l,r);
+}
+*/
+
+// Length and elements of Longest Subarray Having Sum in Given Range [l, r]
+/*int subarray(vector<int> &arr,int l,int r){
+    int maxl=0,sum=0;
+    unordered_map<int,int> res;
+    res[0]=-1;
+    int start=-1;
+    for(int i=0;i<arr.size();i++){
+        sum+=arr[i];
+        for(int j=l;j<=r;j++){
+            if(res.find(sum-j)!=res.end()){
+                if(i-res[sum-j]>maxl){
+                    maxl=i-res[sum-j];
+                    start=res[sum-j]+1;
+                }
+            }
+        }
+        if(res.find(sum)==res.end()){
+            res[sum]=i;
+        }
+    }
+    if(maxl>0){
+        for(int i=start;i<start+maxl;i++){
+            cout<<arr[i]<<" ";
+        }
+        cout<<endl;
+    }
+    return maxl;
+}
+int main(){
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int l=5;
+    int r=10;
+    cout<<"The length is: "<<subarray(arr,l,r);
+}
+*/
+
+
+// Print All Subarrays with Sum in a Given Range [l, r]
+/*void subarrays(vector<int> &arr,int l,int r){
+    int count=0;
+    for(int i=0;i<arr.size();i++){
+        int sum=0;
+        for(int j=i;j<arr.size();j++){
+            sum+=arr[j];
+            if(sum>=l && sum<=r){
+                cout<<"subarray is: ";
+                for(int k=i;k<=j;k++){
+                    cout<<arr[k]<<" ";
+                }
+                count++;
+                cout<<endl;
+            }
+        }
+    }
+    cout<<count;
+}
+
+int main(){
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int l=5;
+    int r=10;
+    subarrays(arr,l,r);
+}
+*/
+
+// Minimum Time Required to Produce m Items
+int minTime(vector<int> &arr, int m) 
+{ 
+    int t = 0; 
+    while (1) 
+    { 
+        int items = 0; 
+        for (int i = 0; i < arr.size(); i++) {
+            items += (t / arr[i]); 
+        }
+        if (items >= m) {
+            return t; 
+        }
+        t++; 
+    } 
+} 
+int main(){
+    int n;
+    cin>>n;
+    vector<int> machines(n);
+    for(int i=0;i<n;i++) cin>>machines[i];
+    int m;
+    cin>>m;
+    cout<<"Minimum time required to produce "<<m <<" items is "<<minTime(machines,m);
+}
