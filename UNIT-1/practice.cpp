@@ -257,7 +257,7 @@ int main(){
 
 // Find distinct elements common to all rows in a matrix
 
-void findcommon(const vector<vector<int>> &arr,int n){
+/*void findcommon(const vector<vector<int>> &arr,int n){
     if(arr.empty()){
         cout<<"array is empty";
     }
@@ -298,4 +298,39 @@ int main(){
         }
     }
     findcommon(arr,n);
+}
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+struct Node{
+    int data;
+    Node *next;
+};
+Node *head=nullptr;
+void insert(int data){
+    Node *newNode=new Node();
+    newNode->data=data;
+    newNode->next=head;
+    head=newNode;
+}
+int main(){
+    Node *newnode=new Node();
+    int data;
+    cin>>newnode->data;
+    insert(newnode->data);
+    Node *temp=head;
+    while(temp!=nullptr){
+        cout<<temp->data<<" ";
+        temp=temp->next;
+    }
+
+    int value;
+    cin>>value;
+    insert(value);
+    temp=head;
+    while(temp!=nullptr){
+        cout<<temp->data<<" ";
+        temp=temp->next;
+    }
 }
