@@ -188,7 +188,7 @@ cout<<"Enter start point and End point: ";
 
 
 // Bin packing problem
-int binpacking(int arr[],int n,int c){
+/*int binpacking(int arr[],int n,int c){
     int res=0;
     int bins_rem=c;
     for(int i=0;i<n;i++){
@@ -212,4 +212,150 @@ int main(){
         cin>>arr[i];
     }
     cout<<binpacking(arr,n,c);
+}
+*/
+
+// Fractional Knapsack Problem
+/*struct Item{
+    int value,weight;
+};
+bool compare(Item a,Item b){
+    return (double)a.value/a.weight>(double)b.value/b.weight;
+}
+double knapsack(Item arr[],int n,int W){
+    sort(arr,arr+n,compare);
+    int currweight=0;
+    double totalvalue=0;
+    for(int i=0;i<n;i++){
+        if(currweight+arr[i].weight<=W){
+            currweight+=arr[i].weight;
+            totalvalue+=arr[i].value;
+        }
+        else{
+            int remain=W-currweight;
+            totalvalue+=arr[i].value*((double)remain/arr[i].weight);
+            break;
+        }
+    }
+    return totalvalue;
+}
+int main(){
+    int n;
+    cin>>n;
+    Item arr[n];
+    for(int i=0;i<n;i++){
+        cout<<"Enter value: ";
+        cin>>arr[i].value;
+        cout<<"Enter weight: ";
+        cin>>arr[i].weight;
+    }
+    int W;
+    cin>>W;
+    cout<<knapsack(arr,n,W);
+}
+*/
+
+// Majority Element
+/*int majorityElement(vector<int> &arr,int n){
+    unordered_map<int,int>freq;
+    for(int num:arr){
+        freq[num]++;
+        if(freq[num]>n/2) return num;
+    }
+    return -1;
+}
+int main(){
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    cout<<majorityElement(arr,n);
+}
+*/
+
+// Connect N Ropes with Minimum Cost
+/*int mincost(vector<int> &arr,int n){
+    priority_queue<int,vector<int>,greater<int>> pq;
+    for(int num:arr) pq.push(num);
+    int totcost=0;
+    while(pq.size()>1){
+        int first=pq.top();
+        pq.pop();
+        int second=pq.top();
+        pq.pop();
+        totcost+=first+second;
+        pq.push(first+second);
+    }
+    return totcost;
+}
+int main(){
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    cout<<mincost(arr,n);
+}
+*/
+
+
+// Coin Change Problem (Greedy)
+/*void coinchange(vector<int> &arr,int n,int amount){
+    sort(arr.rbegin(),arr.rend());
+    int count=0;
+    vector<int> res;
+    for(int num: arr){
+        while(amount>=num){
+            amount-=num;
+            res.push_back(num);
+            count++;
+        }
+    }
+    if(amount==0){
+        cout<<"Min coin required are: "<<count<<endl;
+        cout<<"Coins used are: ";
+        for(int num:res){
+            cout<<num<<" ";
+        }
+        cout<<endl;
+    }
+    else{
+        cout<<"amount can not be made with given coins";
+    }
+}
+int main(){
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int amount=30;
+    coinchange(arr,n,amount);
+}
+*/
+
+
+// C++ program for coin change problem
+// using recursion
+
+// sum coins[0...n-1] coins to get sum "sum"
+int countRecur(vector<int>& coins, int n, int sum) {
+   if(sum==0) return 1;
+   if(sum<0 || n==0) return 0;
+   return countRecur(coins,n,sum-coins[n-1])+countRecur(coins,n-1,sum);
+}
+
+int count(vector<int> &coins, int sum) {
+    return countRecur(coins, coins.size(), sum);
+}
+
+int main() {
+    vector<int> coins = {1, 2, 3};
+    int sum = 5;
+    cout << count(coins, sum);
+    return 0;
 }
