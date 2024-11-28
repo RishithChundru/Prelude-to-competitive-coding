@@ -390,3 +390,95 @@ int main(){
 */
 
 
+//  Missing Characters to Make a String Pangram
+/*int main(){
+    string str;
+    getline(cin,str);
+    unordered_set<char> res;
+    for(char ch:str){
+        if(isalpha(ch)){
+            res.insert(tolower(ch));
+        }
+    }
+    int missing=26-res.size();
+    cout<<missing;
+}*/
+
+
+// Rearrange Characters So That No Two Adjacent Characters Are Same
+/*struct Compare {
+    bool operator()(pair<char, int>& a, pair<char, int>& b) {
+        return a.second < b.second;
+    }
+};
+
+bool rearrangeString(string str) {
+    unordered_map<char, int> freq;
+    for (char c : str) {
+        freq[c]++;
+    }
+
+    priority_queue<pair<char, int>, vector<pair<char, int>>, Compare> maxHeap;
+    for (auto& entry : freq) {
+        maxHeap.push(entry);
+    }
+
+    string result = "";
+    pair<char, int> prev = {'#', -1}; 
+
+    while (!maxHeap.empty()) {
+        auto current = maxHeap.top();
+        maxHeap.pop();
+
+        result += current.first;
+        if (prev.second > 0) {
+            maxHeap.push(prev);
+        }
+
+        current.second--;
+        prev = current;
+    }
+
+    return result.length() == str.length();
+}
+
+int main() {
+    string str = "aaabbcc";
+    if (rearrangeString(str)) {
+        cout << "Rearranged string: " << str << endl;
+    } else {
+        cout << "Not possible to rearrange" << endl;
+    }
+
+    return 0;
+}
+*/
+
+
+//Remove Minimum Number of Characters So That Two Strings Become Anagrams
+/*int minRemoveToMakeAnagram(string str1, string str2) {
+    unordered_map<char, int> freq1, freq2;
+    for (char c : str1) freq1[c]++;
+    for (char c : str2) freq2[c]++;
+
+    int count = 0;
+    for (auto& entry : freq1) {
+        count += abs(entry.second - freq2[entry.first]);
+    }
+    for (auto& entry : freq2) {
+        if (freq1.find(entry.first) == freq1.end()) {
+            count += entry.second;
+        }
+    }
+
+    return count;
+}
+
+int main() {
+    string str1 = "abcde";
+    string str2 = "cab";
+    cout << "Minimum characters to remove: " << minRemoveToMakeAnagram(str1, str2) << endl;
+    return 0;
+}
+*/
+
