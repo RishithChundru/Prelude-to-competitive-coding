@@ -482,3 +482,358 @@ int main() {
 }
 */
 
+// Creation of Stack Using Arrays
+/*int top=-1;
+void push(int stack[],int a,int n){
+    if(top==n-1){
+        cout<<"stack is full";
+    }
+    else{
+        top++;
+        stack[top]=a;
+        for(int i=0;i<n;i++){
+            cout<<stack[i]<<" ";
+        }
+    }
+}
+void pop(int stack[],int n){
+    if(top==-1){
+        cout<<"No elements to delete";
+    }
+    else{
+        cout<<"deleted element is: "<<stack[top];
+        top--;
+    }
+}
+void peek(int stack[]){
+    cout<<stack[top];
+}
+
+int main(){
+    int n;
+    cin >>n;
+    int stack[n];
+    int a;
+    cout<<"Enter a element to push: ";
+    cin>>a;
+    push(stack,a,n);
+    pop(stack,n);
+    //display(n);
+    peek(stack);
+}
+*/
+
+// Stack using linked list
+/*struct Node{
+    int data;
+    Node* next;
+};
+void push(struct Node **top,int data){
+    Node *newNode=new Node();
+    newNode->data=data;
+    newNode->next=*top;
+    *top=newNode;
+}
+void pop(struct Node **top){
+    if(*top==NULL){
+        cout<<"no deletion";
+    }
+    else{
+        struct Node *temp=*top;
+        *top=temp->next;
+        delete temp;
+    }
+}
+void display(struct Node *top){
+    struct Node *temp=top;
+    while(temp!=NULL){
+        cout<<temp->data<<" ";
+        temp=temp->next;
+    }
+}
+int main(){
+    struct Node *top=NULL;
+    int choice,value;
+    while(true){
+        cout<<"1.push\n2.pop\n3.display"<<endl;
+        cout<<"Enter choice: ";
+        cin>> choice;
+        switch(choice){
+            case 1:
+            cin>>value;
+            push(&top,value);
+            break;
+            case 2:
+            pop(&top);
+            break;
+            case 3:
+            display(top);
+            break;
+            default:
+            cout<<"Invalid choice";
+        }
+    }
+}
+*/
+
+
+// Two Pointer Technique - Find Pair with Sum Equal to X
+/*bool pairsum(vector<int> &arr,int n,int X){
+    sort(arr.begin(),arr.end());
+    int left=0;
+    int right=n-1;
+    while(left<=right){
+        int sum=arr[left]+arr[right];
+        if(sum==X){
+            cout<<arr[left]<<" "<<arr[right]<<endl;
+            return true;
+        }
+        else if(sum<X){
+            left++;
+        }
+        else{
+            right--;
+        }
+    }
+    return false;
+}
+int main(){
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int X=10;
+    if(pairsum(arr,n,X)){
+        cout<<" pair found";
+    }
+    else{
+        cout<<"not found";
+    }
+}
+*/
+
+// Count Subarrays with Equal Sum of Elements at Even and Odd Positions
+/*int countsubarrays(vector<int> &arr,int n){
+    int count=0;
+    for(int i=0;i<n;i++){
+        int evensum=0;
+        int oddsum=0;
+        for(int j=i;j<n;j++){
+            if((j-i)%2==0){
+                evensum+=arr[j];
+            }
+            else{
+                oddsum+=arr[j];
+            }
+            if(evensum==oddsum){
+                count++;
+            }
+        }
+    }
+    return count;
+}
+int main(){
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    cout<<countsubarrays(arr,n);
+}
+*/
+
+// Finding a Peak Element in an Array
+/*int peakElement(vector<int> &arr,int n){
+    if(n==0) return arr[0];
+    if(arr[0]>arr[1]) return arr[0];
+    if(arr[n-1]>arr[n-2]) return arr[n-1];
+    for(int i=1;i<n-1;i++){
+        if(arr[i]>arr[i-1] && arr[i]>arr[i+1]){
+            return arr[i];
+        }
+    }
+    return -1;
+}
+int main(){
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    cout<<peakElement(arr,n);
+}
+*/
+
+
+// Find Subarray of Length K with Maximum Peak
+/*int maxpeak(vector<int> &arr,int n,int k){
+    if(n<k){
+        return -1;
+    }
+    int maxpeak=INT_MIN;
+    for(int i=0;i<=n-k;i++){
+        int peak=*max_element(arr.begin()+i,arr.begin()+i+k);
+        maxpeak=max(peak,maxpeak);
+    }
+    return maxpeak;
+}
+int main(){
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int k=3;
+    cout<<maxpeak(arr,n,k);
+}
+*/
+
+
+// Replace Every Element of the Array with the Previous Element
+/*void replacearray(vector<int> &arr,int n){
+   vector<int> res;
+   res.push_back(arr[n-1]);
+   for(int i=1;i<n;i++){
+        res.push_back(arr[i-1]);
+   }
+   for(int i=0;i<n;i++){
+    cout<<res[i]<<" ";
+   }
+}
+int main(){
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    replacearray(arr,n);
+    
+}
+*/
+
+
+// Rearrange Positive and Negative Numbers
+/*void rearrange(vector<int> &arr,int n){
+    vector<int> pos;
+    vector<int> neg;
+    for(int i=0;i<n;i++){
+        if(arr[i]>=0){
+            pos.push_back(arr[i]);
+        }
+        else{
+            neg.push_back(arr[i]);
+        }
+    }
+    arr.clear();
+    for(int i=0;i<neg.size();i++){
+        arr.push_back(neg[i]);
+    }
+    for(int i=0;i<pos.size();i++){
+        arr.push_back(pos[i]);
+    }
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+}
+int main(){
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    rearrange(arr,n);
+}
+*/
+
+
+// Rearrange Array Such that Even Index Elements Are Smaller and Odd Index Elements Are Greater
+/*void rearrange(vector<int> &arr,int n){
+    for (int i = 0; i < n - 1; i++) {
+        if (i % 2 == 0 && arr[i] > arr[i + 1])
+            swap(arr[i], arr[i + 1]);
+ 
+        if (i % 2 != 0 && arr[i] < arr[i + 1])
+            swap(arr[i], arr[i + 1]);
+    }
+}
+int main(){
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    rearrange(arr,n);
+    for(int num:arr){
+        cout<<num<<" ";
+    }
+}
+*/
+
+
+// Count Strings with Consecutive Ones
+
+/*int countones(int n){
+    if(n==0) return 0;
+    vector<int> dp(n+1);
+    dp[0]=1;
+    dp[1]=2;
+    for(int i=2;i<=n;i++){
+        dp[i]=dp[i-1]+dp[i-2];
+    }
+    return dp[n];
+}
+int main(){
+    int n;
+    cin>>n;
+    int totalbinary=1<<n;
+    int b=countones(n);
+    cout<<totalbinary-b;
+}
+*/
+
+
+// Check if All Bits Can Be Made Same by a Single Flip for string
+
+/*bool canMakeAllSame(string &s) {
+    int zeros = 0, ones = 0;
+
+    for (char ch : s) {
+        (ch == '0') ? ++zeros : ++ones;
+    }
+
+    // Return true if any of the two counts is 1
+    return (zeros == 1 || ones == 1);
+}
+
+// Driver code
+int main() {
+    string s = "101";
+    canMakeAllSame(s) ? cout << "Yes\n" : cout << "No\n";
+    return 0;
+}
+*/
+
+
+// Check if All Bits Can Be Made Same by a Single Flip
+bool flip(int n){
+    int flipped=n^(n>>1);
+    return (flipped &(flipped+1))==0;
+}
+int main(){
+    int n;
+    cin>>n;
+    if(flip(n)){
+        cout<<"all bits can be made same by single flip";
+    }
+    else{
+        cout<<"cannot made";
+    }
+}
