@@ -823,7 +823,7 @@ int main() {
 
 
 // Check if All Bits Can Be Made Same by a Single Flip
-bool flip(int n){
+/*bool flip(int n){
     int flipped=n^(n>>1);
     return (flipped &(flipped+1))==0;
 }
@@ -834,6 +834,51 @@ int main(){
         cout<<"all bits can be made same by single flip";
     }
     else{
-        cout<<"cannot made";
+        cout<<"cannot made";    
     }
 }
+*/
+
+
+// Reverse a Queue
+
+void reverseQueue(queue<int>& q) {
+    stack<int> s;
+
+    while (!q.empty()) {
+        s.push(q.front());
+        q.pop();
+    }
+    
+    // Transfer elements from stack back to queue
+    while (!s.empty()) {
+        q.push(s.top());
+        s.pop();
+    }
+}
+
+int main() {
+    queue<int> q;
+    q.push(1);
+    q.push(2);
+    q.push(3);
+    q.push(4);
+
+    cout << "Original Queue: ";
+    queue<int> q_copy = q;
+    while (!q_copy.empty()) {
+        cout << q_copy.front() << " ";
+        q_copy.pop();
+    }
+
+    reverseQueue(q);
+
+    cout << "\nReversed Queue: ";
+    while (!q.empty()) {
+        cout << q.front() << " ";
+        q.pop();
+    }
+
+    return 0;
+}
+
