@@ -335,3 +335,58 @@ int main(){
 }
 */
 
+// K Maximum Sum from Two Arrays
+
+/*int main(){
+    int n;
+    cin>>n;
+    vector<int> arr1(n);
+    vector<int> arr2(n);
+    cout<<"First array: "<<endl;
+    for(int i=0;i<n;i++){
+        cin>>arr1[i];
+    }
+    cout<<"second array: "<<endl;
+    for(int i=0;i<n;i++){
+        cin>>arr2[i];
+    }
+    int k;
+    cin>>k;
+    sort(arr1.begin(),arr1.end(),greater<int>());
+    sort(arr2.begin(),arr2.end(),greater<int>());
+    int sum=0;
+    for(int i=0;i<k;i++){
+        sum+=arr1[i]+arr2[i];
+    }
+    cout<<"Maximum sum: "<<sum<<endl;
+}
+*/
+
+// Anagram
+/*bool isanagram(string a,string b){
+    vector<int> arr(26,0);
+    if(a.length()!=b.length()) return false;
+    for(int i=0;i<a.length();i++){
+        arr[a[i]-'a']++;
+    }
+    for(int i=0;i<b.length();i++){
+        arr[b[i]-'a']--;
+    }
+    for(int i=0;i<arr.size();i++){
+        if(arr[i]!=0){
+            return false;
+        }
+    }
+    return true;
+}
+int main(){
+    string a;
+    string b;
+    getline(cin,a);
+    getline(cin,b);
+    if(isanagram(a,b)) cout<<"strings are anagram";
+    else cout<<"strings are not anagrams";
+}
+*/
+
+
