@@ -126,7 +126,7 @@ int main(){
     cin>>a>>m;
     cout<<invMul(a,m);
 }
-*/
+*/ 
 
 // Sum of Middle Row and Element in Matrix
 /*int sumMiddle(vector<vector<int>> &arr, int n){

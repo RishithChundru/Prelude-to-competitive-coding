@@ -34,8 +34,8 @@ int main(){
     cin>>a>>b;
     int res=gcdextended(a,b,x,y);
     cout<<res;
-}*/
-
+}
+*/
 
 // Total Number of Divisors of a Number
 
@@ -160,7 +160,7 @@ int main(){
 // p-smooth numbers in given ranges
 /*bool issmooth(int n,int p){
     int kmax=2;
-    for(int i=2;i<=kmax;i++){
+    for(int i=2;i*i<=n;i++){
         while(n%i==0){
             n=n/i;
             kmax=i;

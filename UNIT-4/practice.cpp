@@ -26,8 +26,8 @@ int main(){
         cout<<key<<" is found";
     }
     else cout<<key<<" is not found";
-}
-*/
+}*/
+
 
 // recursive binary search
 /*int binarysearch(vector<int> &arr,int left,int right,int key){
@@ -90,10 +90,13 @@ int main(){
     else{
         cout<<"Element not found";
     }
-}*/
+}
+*/
+
+
 
 // most frequent word
-/*string mostfreqchar(string str){
+string mostfreqchar(string str){
     vector<string> res;
     for(int i=0;i<str.size();i++){
         string word="";
@@ -115,7 +118,7 @@ int main(){
     string str;
     getline(cin,str);
     cout<<mostfreqchar(str);
-}*/
+}
 
 // k-most frequent word for string
 
@@ -470,7 +473,7 @@ int main(){
 */
 
 // Minimum Time Required to Produce m Items
-int minTime(vector<int> &arr, int m) 
+/*int minTime(vector<int> &arr, int m) 
 { 
     int t = 0; 
     while (1) 
@@ -493,4 +496,4 @@ int main(){
     int m;
     cin>>m;
     cout<<"Minimum time required to produce "<<m <<" items is "<<minTime(machines,m);
-}
+}*/
