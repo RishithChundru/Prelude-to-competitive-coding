@@ -145,7 +145,7 @@ int main(){
 
 
 // Reverse a String
-/*string reverse(string str){
+/*]string reverse(string str){
     string reversed=str;
     int n=reversed.length();
     for(int i=0;i<n/2;i++){
@@ -261,7 +261,7 @@ int main(){
 */
 
 // Find the First Non-Repeating Character
-char firstnonrepeat(string str){
+/*char firstnonrepeat(string str){
     unordered_map<char,int> res;
     for(char ch:str){
         res[ch]++;
@@ -284,3 +284,4 @@ int main(){
         cout<<"All characters are repeated";
     }
 }
+*/

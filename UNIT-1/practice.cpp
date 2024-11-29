@@ -760,7 +760,7 @@ int main(){
 
 
 // Rearrange Array Such that Even Index Elements Are Smaller and Odd Index Elements Are Greater
-void rearrange(vector<int> &arr,int n){
+/*void rearrange(vector<int> &arr,int n){
     for (int i = 0; i < n-1 ; i++) {
         if (i % 2 == 0 && arr[i] > arr[i + 1])
             swap(arr[i], arr[i + 1]);
@@ -780,7 +780,7 @@ int main(){
     for(int num:arr){
         cout<<num<<" ";
     }
-}
+}*/
 
 
 
@@ -849,7 +849,7 @@ int main(){
 
 // Reverse a Queue
 
-/*void reverseQueue(queue<int>& q) {
+void reverseQueue(queue<int>& q) {
     stack<int> s;
 
     while (!q.empty()) {
@@ -866,10 +866,16 @@ int main(){
 
 int main() {
     queue<int> q;
-    q.push(1);
-    q.push(2);
-    q.push(3);
-    q.push(4);
+    // q.push(1);
+    // q.push(2);
+    // q.push(3);
+    // q.push(4);
+    int n,element;
+    cin>>n;
+    for(int i=0;i<n;i++){
+        cin>>element;
+        q.push(element);
+    }
 
     cout << "Original Queue: ";
     queue<int> q_copy = q;
@@ -888,4 +894,4 @@ int main() {
 
     return 0;
 }
-*/
+

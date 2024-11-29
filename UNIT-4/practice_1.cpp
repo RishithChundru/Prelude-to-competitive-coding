@@ -3,7 +3,7 @@
 #include <vector>
 using namespace std;
 
-/*vector<pair<int, int>> findPairsWithDifference(int arr[], int n, int k) {
+vector<pair<int, int>> findPairsWithDifference(int arr[], int n, int k) {
     unordered_set<int> seen;
     vector<pair<int, int>> result;
 
@@ -50,7 +50,7 @@ int main() {
 
     return 0;
 }
-*/
+
 
 
 
