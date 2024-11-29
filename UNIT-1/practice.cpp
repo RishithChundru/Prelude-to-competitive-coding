@@ -131,39 +131,45 @@ int main(){
 
 // Matrix multiplication
 
-/*int main(){
-    int r1,c1,r2,c2;
-    cin>>r1>>c1>>r2>>c2;
-    int arr1[r1][c1];
-    int arr2[r2][c2];
-    int res[r1][c2]={0};
-    for(int i=0;i<r1;i++){
-        for(int j=0;j<c1;j++){
-            cin>>arr1[i][j];
-        }
-    }
-    for(int i=0;i<r2;i++){
-        for(int j=0;j<c2;j++){
-            cin>>arr2[i][j];
-        }
-    }
-    if(c1!=r2){
-        cout<<"Matrix multiplication not possible";
+
+/*int main() {
+    int r1, c1, r2, c2;
+    cin >> r1 >> c1 >> r2 >> c2;
+    if (c1 != r2) {
+        cout << "Matrix multiplication not possible";
         return 0;
     }
-    for(int i=0;i<r1;i++){
-        for(int j=0;j<c2;j++){
-            for(int k=0;k<c1;k++){
-                res[i][j]+=arr1[i][k]*arr2[k][j];
+    vector<vector<int>> arr1(r1, vector<int>(c1));
+    vector<vector<int>> arr2(r2, vector<int>(c2));
+    vector<vector<int>> res(r1, vector<int>(c2, 0));
+    for (int i = 0; i < r1; i++) {
+        for (int j = 0; j < c1; j++) {
+            cin >> arr1[i][j];
+        }
+    }
+
+    for (int i = 0; i < r2; i++) {
+        for (int j = 0; j < c2; j++) {
+            cin >> arr2[i][j];
+        }
+    }
+
+    for (int i = 0; i < r1; i++) {
+        for (int j = 0; j < c2; j++) {
+            for (int k = 0; k < c1; k++) {
+                res[i][j] += arr1[i][k] * arr2[k][j];
             }
         }
     }
-    for(int i=0;i<r1;i++){
-        for(int j=0;j<c2;j++){
-            cout<<res[i][j]<<" ";
+
+    for (int i = 0; i < r1; i++) {
+        for (int j = 0; j < c2; j++) {
+            cout << res[i][j] << " ";
         }
-        cout<<endl;
+        cout << endl;
     }
+
+    return 0;
 }
 */
 
@@ -173,7 +179,7 @@ int main(){
     cin>>n;
     vector<vector<int>> a(n,vector<int>(n));
     vector<vector<int>> l(n,vector<int>(n));
-    vector<vector<int>> u(n,vector<int>(n,0));
+    vector<vector<int>> u(n,vector<int>(n));
     for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
             cin>>a[i][j];
@@ -755,7 +761,7 @@ int main(){
 
 // Rearrange Array Such that Even Index Elements Are Smaller and Odd Index Elements Are Greater
 /*void rearrange(vector<int> &arr,int n){
-    for (int i = 0; i < n - 1; i++) {
+    for (int i = 0; i < n-1 ; i++) {
         if (i % 2 == 0 && arr[i] > arr[i + 1])
             swap(arr[i], arr[i + 1]);
  
@@ -794,6 +800,7 @@ int main(){
     int n;
     cin>>n;
     int totalbinary=1<<n;
+    cout<<totalbinary<<endl;
     int b=countones(n);
     cout<<totalbinary-b;
 }
@@ -881,4 +888,4 @@ int main() {
 
     return 0;
 }
-
+*/
