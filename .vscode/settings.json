@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "regex": "cpp"
+        "regex": "cpp",
+        "chrono": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

@@ -96,11 +96,11 @@ int main(){
 
 
 // most frequent word
-string mostfreqchar(string str){
+/*string mostfreqchar(string str){
     vector<string> res;
     for(int i=0;i<str.size();i++){
         string word="";
-        while(str[i]!=' '){
+        while(i<str.size() && str[i]!=' '){
             word+=str[i];
             i++;
         }
@@ -108,7 +108,7 @@ string mostfreqchar(string str){
     }
     for(int i=0;i<res.size();i++){
         for(int j=i+1;j<res.size();i++){
-            if(res[i]==res[j]) return res[j];
+            if(res[i]==res[j]) return res[i];
         }
     }
     return "-1";
@@ -119,7 +119,7 @@ int main(){
     getline(cin,str);
     cout<<mostfreqchar(str);
 }
-
+*/
 // k-most frequent word for string
 
 /*vector<string> findfreq(string str,int k){
@@ -212,7 +212,6 @@ int main()
 /*unordered_set<int> findpair(vector<int> &arr, int k){
     unordered_set<int> res; 
     unordered_set<int> nums(arr.begin(), arr.end());  
-
     for (int num : arr) {
         if (nums.find(num - k) != nums.end()) {
             res.insert(num);  
@@ -223,7 +222,7 @@ int main()
             res.insert(num + k); 
         }
     }
-    return res;
+     return res;
     }
 
     int main(){
@@ -237,11 +236,11 @@ int main()
         cin>>k;
         unordered_set<int> res=findpair(arr,k);
         for (auto &a: res){
-            cout<<a<<endl;
+            cout<<a<<" ";
         }
+        cout<<endl;
     }
-    */
-
+*/
 // Find a pair if it is present or not
 
 /*bool findPairWithDifference(const vector<int>& arr, int k) {
@@ -256,8 +255,8 @@ int main()
 }
 
 int main() {
-    vector<int> arr = {1, 8, 12, 5, 3};
-    int k = 7;
+    vector<int> arr = {1, 8, 1, 5, 3};
+    int k = 0;
     if (findPairWithDifference(arr, k)) {
         cout << "Pair found with difference " << k << endl;
     } else {
@@ -473,7 +472,7 @@ int main(){
 */
 
 // Minimum Time Required to Produce m Items
-/*int minTime(vector<int> &arr, int m) 
+int minTime(vector<int> &arr, int m) 
 { 
     int t = 0; 
     while (1) 
@@ -496,4 +495,4 @@ int main(){
     int m;
     cin>>m;
     cout<<"Minimum time required to produce "<<m <<" items is "<<minTime(machines,m);
-}*/
+}

@@ -1,16 +1,19 @@
+// C++ program to find Maximum Product Subarray 
+// using nested loops
+
 #include <bits/stdc++.h>
 using namespace std;
 
-int minProduct(vector<int> &arr) {
+// Function to return the product of max product subarray
+int maxProduct(vector<int> &arr) {
     int n = arr.size();
-
     int result = arr[0];
 
     for (int i = 0; i < n; i++) {
         int mul = 1;
         for (int j = i; j < n; j++) {
-            mul *= arr[j];
-            result = min(result, mul);
+              mul *= arr[j];
+            result = max(result, mul);
         }
     }
     return result;
@@ -23,6 +26,5 @@ int main() {
     for(int i=0;i<n;i++){
         cin>>arr[i];
     }
-    cout << "Minimum product of a subarray is: " << minProduct(arr);
-    return 0;
+    cout << maxProduct(arr);
 }

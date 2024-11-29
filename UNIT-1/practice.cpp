@@ -760,7 +760,7 @@ int main(){
 
 
 // Rearrange Array Such that Even Index Elements Are Smaller and Odd Index Elements Are Greater
-/*void rearrange(vector<int> &arr,int n){
+void rearrange(vector<int> &arr,int n){
     for (int i = 0; i < n-1 ; i++) {
         if (i % 2 == 0 && arr[i] > arr[i + 1])
             swap(arr[i], arr[i + 1]);
@@ -781,7 +781,7 @@ int main(){
         cout<<num<<" ";
     }
 }
-*/
+
 
 
 // Count Strings with Consecutive Ones
@@ -849,7 +849,7 @@ int main(){
 
 // Reverse a Queue
 
-void reverseQueue(queue<int>& q) {
+/*void reverseQueue(queue<int>& q) {
     stack<int> s;
 
     while (!q.empty()) {

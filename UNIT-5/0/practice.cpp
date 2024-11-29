@@ -92,25 +92,31 @@ int main() {
 //  Minimum product subset of an array
 /*int minproduct(vector<int> &arr,int n){
     if(n==1) return arr[0];
-    int product=1,negcount=0,zerocount=0,maxneg=INT_MIN;
+    int product=1,negcount=0,zerocount=0,maxneg=INT_MIN,minpos=INT_MAX;
     for(int i=0;i<n;i++){
         if(arr[i]>0){
+            minpos=min(minpos,arr[i]);
             product*=arr[i];
         }
         else if(arr[i]<0){
             negcount++;
-            product*=arr[i];
             maxneg=max(maxneg,arr[i]);
         }
         else{
             zerocount++;
+            continue;
         }
     }
-    if(negcount==0 &&  zerocount==0) return product;
-    if(negcount==1 && zerocount==n-1) return 0;
-    if(negcount%2 != 0){
-        product/=maxneg;
-    }
+
+    if (zerocount == n || (negcount == 0 && zerocount > 0))
+        return 0;
+
+    if (negcount == 0)
+        return minpos;
+
+    if (!(negcount & 1) && negcount != 0)
+        product = product / maxneg;
+
     return product;
 }
 int main(){
